@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import java.util.List;
-
+//written by shreyas
+//creating the functions for settings fragment including how the scan phone button deletes the database and runs on non UI thread and displays a toast when done
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link SettingsFragment#newInstance} factory method to

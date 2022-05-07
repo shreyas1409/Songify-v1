@@ -17,7 +17,8 @@ import com.bumptech.glide.Glide;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-
+//Music adapter class containing the view which holds the music_items, uses Glide to load art into album_art, loads the title and the art into the correct position connected to music item
+//from https://www.youtube.com/watch?v=prxqc-B1h1w&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=4 timestamp 2:45
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.myViewHolder> {
 
     private Context mContext;

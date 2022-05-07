@@ -5,6 +5,9 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//Written by Shreyas
+//Creating entities for database along with getters and setters
+//Also used for the music items displayed in Music Fragment from https://www.youtube.com/watch?v=sAVXRkI2ihI&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=3 timestamp 5:00
 @Entity(tableName = "musicfiles")
 public class MusicFiles {
     @PrimaryKey(autoGenerate = true)

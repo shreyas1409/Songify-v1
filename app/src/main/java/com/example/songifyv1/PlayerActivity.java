@@ -22,7 +22,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+//Making Playeractivity to connect the buttons and multiple features from the xml files and layout with their functions
+//Learnt how to do this from https://www.youtube.com/watch?v=3HY1BpQJ-NY&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=7
 public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener {
     TextView song_name, artist_name, duration_played, duration_total;
     ImageView cover_art, nextBtn, prevBtn, backBtn, shuffleBtn, repeatBtn;
@@ -72,6 +73,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
                  handler.postDelayed(this, 1000);
             }
         });
+
+        //Shuffle and repeat button functionalities from https://www.youtube.com/watch?v=pLRBhUIy6H8&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=11 timestamp 3:15
         shuffleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +110,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         prevThreadBtn();
         super.onResume();
     }
-
+//Next, prev and play/pause buttons from https://www.youtube.com/watch?v=r7B9S3S1xPI&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=8 4:45
+//Defining the functionalities for these buttons and also making them work with shuffle/repeat/what to do when the song duration finishes and next song plays
     private void nextThreadBtn() {
         nextThread = new Thread(){
             @Override
@@ -128,6 +132,7 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         if(mediaPlayer.isPlaying()){
             mediaPlayer.stop();
             mediaPlayer.release();
+            //shuffle and repeat button functionalities from https://www.youtube.com/watch?v=pLRBhUIy6H8&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=11 timestamp 5:30
             if(shuffleBoolean&& !repeatBoolean){
                 position = getrandom(listSongs.size()-1);
             }
@@ -157,6 +162,7 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         else{
             mediaPlayer.stop();
             mediaPlayer.release();
+            //shuffle and repeat button functionalities from https://www.youtube.com/watch?v=pLRBhUIy6H8&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=11 timestamp 5:30
             if(shuffleBoolean&& !repeatBoolean){
                 position = getrandom(listSongs.size()-1);
             }
@@ -210,6 +216,7 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         if(mediaPlayer.isPlaying()){
             mediaPlayer.stop();
             mediaPlayer.release();
+            //shuffle and repeat button functionalities from https://www.youtube.com/watch?v=pLRBhUIy6H8&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=11 timestamp 5:30
             if(shuffleBoolean&& !repeatBoolean){
                 position = getrandom(listSongs.size()-1);
             }
@@ -239,6 +246,7 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         else{
             mediaPlayer.stop();
             mediaPlayer.release();
+            //shuffle and repeat button functionalities from https://www.youtube.com/watch?v=pLRBhUIy6H8&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=11 timestamp 5:30
             if(shuffleBoolean&& !repeatBoolean){
                 position = getrandom(listSongs.size()-1);
             }
@@ -314,7 +322,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
             });
         }
     }
-
+//from https://www.youtube.com/watch?v=3HY1BpQJ-NY&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=7 timestamp 7:30
+//Code for the duration bar being able to display the song at the relevant position being able to display it's duration correctly
     private String formattedTime(int mCurrentPosition) {
         String totalout = "";
         String totalNew = "";
@@ -329,7 +338,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
             return totalout;
         }
     }
-
+//Intentmethod from https://www.youtube.com/watch?v=3HY1BpQJ-NY&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=7 timestamp 2:40
+//When the phone has songs, this will make the duration bar generate with the song's duration and call metadata to retrieve the song's metadata according to position in song list
     private void getIntentMethod() {
         position = getIntent().getIntExtra("position", -1);
         listSongs = musicFiles;
@@ -366,12 +376,14 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
         playPauseBtn =  findViewById(R.id.play_pause);
         seekBar =  findViewById(R.id.seekBar);
     }
-
+//from https://www.youtube.com/watch?v=r7B9S3S1xPI&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=8 0:25
+//This method uses the Uri to retrieve the song's duration
     private void metaData(Uri uri){
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
         retriever.setDataSource(uri.toString());
         int durationTotal = Integer.parseInt(listSongs.get(position).getDuration())/1000;
         duration_total.setText(formattedTime((durationTotal)));
+        //unused code below
         byte[] art = retriever.getEmbeddedPicture();
         if(art!= null){
             Glide.with(this)
@@ -386,7 +398,8 @@ public class PlayerActivity extends AppCompatActivity implements MediaPlayer.OnC
                     .into(cover_art);
             }
         }
-
+//Method that is called when a song finishes it calls next  button clicked method to start next song and start a new on completion listener for new song
+//from https://www.youtube.com/watch?v=YLV35ZbU26s&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=10 timestamp 5:00
     @Override
     public void onCompletion(MediaPlayer mp) {
         nextBtnClicked();

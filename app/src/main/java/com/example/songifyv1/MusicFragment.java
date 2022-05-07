@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+//Makes an instance of musicadapter and recyclerview to be the fragment that holds music_files
+//From https://www.youtube.com/watch?v=prxqc-B1h1w&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=4 timestamp 7:45
 
 
 public class MusicFragment extends Fragment {

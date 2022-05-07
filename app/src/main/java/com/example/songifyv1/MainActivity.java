@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
+//Permission to read the phone for displaying music files from https://www.youtube.com/watch?v=sAVXRkI2ihI&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=3 timestamp 3:00
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+//viewPager concept from learning video https://www.youtube.com/watch?v=IauxP5xgu_s timestamp 4:00
     private void initViewPager() {
         ViewPager viewPager = findViewById(R.id.viewpager);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             return titles.get(position);
         }
     }
-
+//Using Uri and getting the music file's metadata with cursor from https://www.youtube.com/watch?v=sAVXRkI2ihI&list=PLwQLA73lSe1RfjMzbRLoIkcIJBu25FnVJ&index=3 timestamp 6:15
     public static ArrayList<MusicFiles> getAllAudio(Context context) {
         ArrayList<MusicFiles> tempAudioList = new ArrayList<>();
         int e = 1;
