@@ -2,7 +2,6 @@ package com.example.songifyv1;
 //Written by Shreyas
 import android.content.Context;
 //making a Room database
-//Learnt about using a room database from https://developer.android.com/codelabs/android-room-with-a-view#0
 
 import androidx.room.Database;
 import androidx.room.Room;
